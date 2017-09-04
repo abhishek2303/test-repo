@@ -1,0 +1,47 @@
+Follow the instructions from : https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm
+
+{
+  "name": "jsoneditor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+Additional Instructions:
+
+Note: only one project should be running at a time
+
+1.run all the above dependencies under the project directory and only one project should be running at a time
+
+eg. npm install webpack --save (run this command with all the above dependencies with the --save command so that package.json gets update and the dependencies are installed in your project)
+
+2. delete "test" "echo \"Error: no test specified\" && exit 1" inside "scripts" object. We are deleting this line since we will not do any testing in this tutorials. Let's add the start command instead.
+
+"start": "webpack-dev-server --hot"
+
+3. change the path in web.cofig.js to: absolute path
+
+path:'C:\\Users\\sg0227829\\Documents\\JsonEditor',
+
+4. add the following in the loaders in web.config.js file:
+
+loader: 'babel',
+
+5. run npm start
+5. the cmd  title should convert to npm after sucees

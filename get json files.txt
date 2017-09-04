@@ -1,0 +1,47 @@
+zip
+
+list = [];
+
+zip.forEach(function (relativePath, zipEntry) 
+{
+	list.push(zipEntry);
+});
+
+list;
+
+jsonFiles = [];
+
+list.forEach(zip.file("hello.txt").async("string").then(function (data) {
+  // data is "Hello World\n"
+});
+
+/*list.forEach(function (content){
+		content.async("string").then(function(str){
+			jsonFiles.push(str);
+		});
+});*/
+
+var str2 = String.fromCharCode.apply(null, str);
+
+list[1];
+list[1].async("string").then(function(str){
+			console.log(str);
+		});
+
+
+update file:
+
+root
+list = []
+root.forEach(function (relativePath, zipEntry) 
+{
+	list.push(zipEntry);
+});
+
+
+root.file("VA_VAVA_null/STOREFRONTS.json","{tanef:dg}")
+list[1].async("string").then(function(str){
+			console.log(str);
+		});
+
+similarly append and remove

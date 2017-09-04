@@ -1,0 +1,17 @@
+1. jseditor.css
+2. index.html
+3. jsZipLoadFiles.js (added)
+4. TreeviewCollapsibleList.css (added) 
+
+1.jsoneditor.js 
+
+changes 19-05-17
+1. jsoneditor.js
+2. jsoneditor.css
+3. index.html
+4. jsZipLoadFiles.js
+5. css folder some files deleted 
+6. js folder some files deleted 
+7. index.html
+8. Main.js
+9. TreeViewCollapsibleList.css

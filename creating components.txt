@@ -1,0 +1,42 @@
+/* creating components */
+
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function List()
+{
+  return <ul><li>1</li><li>2</li></ul>
+}
+
+function Header(props)
+{
+  return <header> hello </header>
+}
+
+function Footer(props)
+{
+  return <footer> footer </footer>
+}
+
+function Section()
+{
+  return <section> section </section>
+}
+function App() {
+  return (
+    <div>
+      <Header />
+      <Welcome name="Cahal" />
+      <List />
+      <Section />
+      <Welcome name="Edite" />
+      <Footer />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);

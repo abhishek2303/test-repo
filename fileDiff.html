@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+   <head>
+		<meta charset = "UTF-8">
+		<link rel="shortcut icon" href="https://www.sabre.com/wp/wp-content/themes/sabre-edl/images/favicon.ico" />
+
+		<title>Sabre &#8211; JSON Editor</title>
+
+		<style type="text/css">
+			#jsoneditor {
+			  width: 100%;
+			  height: 600px;
+			}
+		</style>
+
+		<!-- imp JSONEditor header and padding-->
+		<link rel='stylesheet' id='killersites-bootstrap-css'  href='css/bootstrap.min.css' type='text/css' media='all' />
+		<!-- imp page layout -->
+		<link rel='stylesheet' id='killersites-styles-css'  href='css/style.css' type='text/css' media='all' />
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!--********************** JSZip me ***************************************************************** -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="JSZip_Css_Js/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="JSZip_Css_Js/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="JSZip_Css_Js/pygments.css">
+		<link rel="stylesheet" href="JSZip_Css_Js/main.css">
+		<script type="text/javascript" src="JSZip_Css_Js/jszip.js"></script>
+		<script type="text/javascript" src="JSZip_Css_Js/jszip-utils.js"></script>
+		<!--
+		Any version of jQuery will do (it's just to write some examples), this one
+		happens to be available in our tests.
+		-->
+		<script type="text/javascript" src="JSZip_Css_Js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="JSZip_Css_Js/FileSaver.js"></script>
+		<script type="text/javascript" src="JSZip_Css_Js/jsZipLoadOldFile.js"></script>
+		<script type="text/javascript" src="JSZip_Css_Js/jsZipLoadNewFile.js"></script>
+
+		<!--***************************** JSZip *****************************************************************************************************-->
+
+
+		<!--********************** json editor ******************************** from me -->
+		<link href="dist/jsoneditor.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="dist/jsoneditor.js"></script>
+		<!-- ****************** Json editor ************************ *me -->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- ****************************CollapsibleList****************************************************************** -->
+		<script type="text/javascript" src="CollapsibleList/CollapsibleLists.js"></script>
+		<script type="text/javascript" src="CollapsibleList/CollapsibleLists2.js"></script>
+		<link rel="stylesheet" href="CollapsibleList/TreeviewCollapsibleList.css">
+		<link rel="stylesheet" href="CollapsibleList/TreeviewCollapsibleList2.css">
+		<!-- **********************************CollapsibleList************************************************************ -->
+
+		<script type="text/javascript" src="fileDiff.js"></script>
+    <script src = "ExplorerNode.js"></script>
+    <script src = "Explorer.js"></script>
+
+		<!-- The two buttons for saving files and zip -->
+		<style>
+		#saveZipBtn{
+		margin-left:95%;
+		margin-bottom:10px;
+		}
+		</style>
+   </head>
+
+   <body>
+
+     <script src="./JSZip_Css_Js/jszip.js"></script>
+    <div id="root"></div>
+    <!--<script src = "index.js"></script>-->
+    <header id="pageheader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+    				<a href=""><img src="images/sabre-logo-transparent.png" alt="Sabre" width="246" height="42"></a>
+    			</div>
+    	    </div>
+        </div>
+    </header>
+
+	<section id="pagebanner">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+                <h1>JSON Editor</h1>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+	<nav id="pagenav">
+		<div class="container">
+		    <div class="row">
+			        <div class="col-sm-12">
+		        	<a href="#" id="mobile-toggle">Menu <img src="images/menu.png" height="20" width="24" alt=""></a>
+		        	<ul id="menu-main" class="menu">
+						<li id="menu-item-1771" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1771"><a href="http://localhost:8080">Editor</a>
+						</li>
+						<li id="" onclick="myFunction()" class=""><a href="">Find Difference between Files</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<section id="content">
+		<div class="container">
+			<div class="row">
+				<div>
+					<img id="showdiff" src="images/zip22.png"  width="42" height="42 border=0" title="Save Zip" style="cursor:pointer;" onclick="loadFiles(root1, root2);" >
+					<img id="showdiff" src="images/zip22.png"  width="42" height="42 border=0" title="Save Zip" style="cursor:pointer;" onclick="fileDifference(root1, root2);" >
+				</div>
+				<div class="col-xs-6">
+					<div class="leftframe">
+						<div class="jsoneditor-menu">
+
+							<!-- For JSZip ***************************************-->
+
+							<!-- For JSZip ***************************************-->
+							<i class="fa fa-folder-open" style="font-size:20px;color:white;cursor:pointer; padding-left:2%; margin-top:1%" title="Choose File" onclick="document.getElementById('oldfile').click();" ></i>
+							<input type="file" id="oldfile" style="display: none;" name="file" multiple accept= ".zip, .rar" /><br />
+
+						</div>
+
+						<!-- JSZip ***********************************************************************-->
+
+						<div id="result_block" class="hidden">
+							<div id="result"></div>
+						</div>
+						<!-- don't delete -->
+						<script type="text/javascript" src="JSZip_Css_Js/jsZipLoadOldFile.js"></script>  <!-- Changes: copied script from Jstry6.html -->
+
+						<!-- JSZip ********************************************************************************************-->
+
+
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="leftframe">
+						<div class="jsoneditor-menu">
+
+							<!-- For JSZip ***************************************-->
+
+							<!-- For JSZip ***************************************-->
+							<i class="fa fa-folder-open" style="font-size:20px;color:white;cursor:pointer; padding-left:2%; margin-top:1%" title="Choose File" onclick="document.getElementById('newfile').click();" ></i>
+							<input type="file" id="newfile" style="display: none;" name="file" multiple accept= ".zip, .rar" /><br />
+
+						</div>
+
+						<!-- JSZip ***********************************************************************-->
+
+						<div id="result_block2" class="hidden">
+							<div id="result2"></div>
+						</div>
+						<!-- don't delete -->
+						<script type="text/javascript" src="JSZip_Css_Js/jsZipLoadNewFile.js"></script>  <!-- correct this line and file -->
+
+						<!-- JSZip ********************************************************************************************-->
+
+
+					</div>
+				</div>
+				<div class="social-bottom"></div>
+
+				<script>
+					var container = document.getElementById('jsoneditor');
+
+					var options = {
+					mode: 'tree',
+					modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+					onError: function (err) {
+					 alert(err.toString());
+					},
+					onModeChange: function (newMode, oldMode) {
+					  console.log('Mode switched from', oldMode, 'to', newMode);
+					}
+					};
+
+
+
+					/*var json = {
+					"array": [1, 2, 3],
+					"boolean": true,
+					"null": null,
+					"number": 123,
+					"object": {"a": "b", "c": "d"},
+					"string": "Hello World"
+					};*/
+
+					var json = {};
+
+					var editor = new JSONEditor(container, options, json);
+				</script>
+
+				<div class="social-bottom">
+					<!--
+					<span class='st_facebook_hcount' displayText='Facebook'></span>
+					<span class='st_twitter_hcount' displayText='Tweet'></span>
+					<span class='st_plusone_hcount' displayText='Google +1'></span>
+					<span class='st_reddit_hcount' displayText='Reddit'></span>
+					-->
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section id="social">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-8">
+						<ul class="social">
+							<li><a href="#"><img src="images/social-facebook.png" alt="Facebook"></a></li>
+							<li><a href="#"><img src="images/social-twitter.png" alt="Twitter"></a></li>
+							<li><a href="#"><img src="images/social-google.png" alt="Google+"></a></li>
+							<li><a href="#"><img src="images/social-youtube.png" alt="YouTube"></a></li>
+							<!-- <li><a target="_blank" href="#"><img src="images/social-youtube.png" alt="YouTube"></a></li> -->
+							<li class="text">Stay connected with Sabre</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 text-right">
+						<a href="#top" id="pagetop">Top of Page</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<footer id="pagefooter">
+	    <div class="container">
+
+	    </div>
+	</footer>
+
+
+
+
+   </body>
+
+</html>

@@ -1,0 +1,107 @@
+ .treeView2{
+        -moz-user-select:none;
+        position:relative;
+      }
+
+      .treeView2 ul{
+        margin:0 0 0 -1.5em;
+        padding:0 0 0 1.5em;
+      }
+
+      .treeView2 ul ul{
+         repeat-y left;
+      }
+
+      .treeView2 li.lastChild > ul{
+        background-image:none;
+      }
+	  
+	  .treeView2 li{
+		list-style-type: none;
+      }
+
+      .treeView2 li:before{
+		list-style-type: none;
+		content: "{;}";
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+        /*margin:0;
+        padding:0;
+        list-style-position:inside;
+        list-style-image:url('button.png');*/
+        cursor:pointer;
+      }
+	  
+	  .treeView2 li.collapsibleList2Open{
+   		 cursor:pointer;
+      }
+
+      .treeView2 li.collapsibleList2Open:before{
+		list-style-type: none;
+		content: "\f0d7";
+		font-family: "FontAwesome";
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+        /*list-style-image:url('button-open.png');*/
+        cursor:pointer;
+      }
+	  
+	  
+
+      .treeView2 li.collapsibleList2Closed:before{
+		list-style-type: none;
+		content: "\f0da";
+		font-family: "FontAwesome";
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+        /*list-style-image:url('button-closed.png');*/
+        cursor:pointer;
+      }
+
+      .treeView2 li li{
+        
+        padding-left:1.5em;
+      }
+	  
+	   .treeView2 li.collapsibleList2Closed:hover{
+        
+         background: blue;
+		 color:white;
+		 cursor:pointer;
+      }
+	    
+	   .treeView2 li.jsonFile:hover{
+        
+         background: blue;
+		 color:white;
+		 cursor:pointer;
+      }
+	  
+	   .treeView2 li.added{
+		 background: #bbffbb;
+	  }
+	  .treeView2 li.removed{
+		  background: #ffbbbb;
+		  text-decoration: line-through;
+	  }
+	  	    
+		 .treeView2 li.changed{
+		  background: #ffdead;
+		  text-decoration: none;
+	  }
+	  	    
+			
+      .treeView2 li.lastChild{
+        background-image:url('list-item-last.png');
+      }
+
+      /*.treeView2 li.collapsibleList2Open{
+        background-image:url('list-item-open.png');
+      }
+
+      .treeView2 li.collapsibleList2Open.lastChild{
+        background-image:url('list-item-last-open.png');
+      }*/
