@@ -25,12 +25,7 @@ function Section()
 }
 function App() {
   return (
-    <div>
-      <Header />
-      <Welcome name="Cahal" />
-      <List />
-      <Section />
-      <Welcome name="Edite" />
+  
       <Footer />
     </div>
   );
